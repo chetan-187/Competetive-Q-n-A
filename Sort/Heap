@@ -1,0 +1,94 @@
+#include <stdio.h> 
+#define MAX 20
+int k=0;
+ 
+
+typedef struct student{
+    char stud_name[20];
+    int roll_no;
+    float stud_cpi;
+}student;
+ 
+void heapify(student arr[], int n, int i) 
+{ 
+    int largest = i;  
+    int l = 2*i + 1;  
+    int r = 2*i + 2; 
+    student temp;
+
+     
+    if (l < n && arr[l].roll_no > arr[largest].roll_no) 
+        largest = l; 
+
+ 
+    if (r < n && arr[r].roll_no > arr[largest].roll_no) 
+        largest = r; 
+
+    if (largest != i) 
+    { 
+        
+        temp=arr[i];
+        arr[i]=arr[largest];
+        arr[largest]=temp;
+        k++;
+        
+        
+
+         
+        heapify(arr, n, largest); 
+    } 
+} 
+
+void heapSort(student arr[], int n) 
+
+{ 
+    student temp;
+
+    for (int i = n / 2 - 1; i >= 0; i--) 
+        heapify(arr, n, i); 
+
+    
+    for (int i=n-1; i>0; i--) 
+    { 
+        
+        
+        temp=arr[0];
+        arr[0]=arr[i];
+        arr[i]=temp;
+        k++;
+       
+        heapify(arr, i, 0); 
+    } 
+} 
+
+void printArray(student arr[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        printf("Name = %s Roll:No = %d CPI = %f \n", arr[i].stud_name,arr[i].roll_no,arr[i].stud_cpi); 
+    printf("\n"); 
+} 
+
+
+int main() 
+{ 
+    student s[MAX];
+    int i, n;
+    printf("Enter the no. of students : ");
+    scanf("%d",&n);
+    printf("Enter details: Name No. cpi\n");
+    for(i=0;i<n;i++){
+        printf("Enter name of %d : ",i);
+        scanf("%s",s[i].stud_name);
+        printf("Enter roll of %s : ",s[i].stud_name);
+        scanf("%d",&s[i].roll_no);
+        printf("Enter cpi of %s : ",s[i].stud_name);
+        scanf("%f",&s[i].stud_cpi);
+        printf("--------------------------------\n");}
+
+    heapSort(s, n); 
+
+    printf("Sorted \n"); 
+    printArray(s, n); 
+    printf("No.of swaps : %d ",k);
+} 

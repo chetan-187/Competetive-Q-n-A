@@ -1,0 +1,88 @@
+#include <stdio.h>
+#define MAX 100
+typedef struct employee{
+    char employee_name[50];
+    int emp_no;
+    int emp_salary;
+    
+}employee;
+
+int partition ( employee arr[], int low, int high) 
+{ 
+    int pivot = arr[high].emp_no;    
+    int i = (low - 1);
+    employee temp;
+  
+    for (int j = low; j <= high- 1; j++) 
+    { 
+        
+        if (arr[j].emp_no < pivot) 
+        { 
+            i++;    
+            
+             temp=arr[i];
+              arr[i]=arr[j];
+              arr[j]=temp;
+              
+        } 
+    } 
+    
+              temp=arr[i+1];
+              arr[i+1]=arr[high];
+              arr[high]=temp;
+              
+    return (i + 1); 
+} 
+  
+
+void quickSort( employee arr[], int low, int high) 
+{ 
+    if (low < high) 
+    { 
+        
+        int pi = partition(arr, low, high); 
+        quickSort(arr, low, pi - 1); 
+        quickSort(arr, pi + 1, high); 
+    } 
+} 
+  
+void printArray(employee arr[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        printf("%s %d %d\n", arr[i].employee_name,arr[i].emp_no,arr[i].emp_salary); 
+    printf("\n"); 
+} 
+
+
+
+int main()
+
+{
+    employee emp[MAX];
+    int i, n;
+    printf("\nEnter the no. of Employ\n");
+    scanf("%d",&n);
+    printf("\nEnter details: Name No. Salary\n");
+    for(i=0;i<n;i++){
+        printf("Enter name of %d\n",i);
+        scanf("%s",emp[i].employee_name);
+        printf("Enter salary of %d\n",i);
+        scanf("%d",&emp[i].emp_salary);
+        printf("Enter id of %d\n",i);
+        scanf("%d",&emp[i].emp_no);
+        printf("--------------------------------\n");
+    }
+    
+        
+    
+   
+    quickSort(emp, 0, n-1); 
+    printf("Sorted \n"); 
+    printArray(emp, n);
+    
+     
+    
+
+    return 0;
+}
