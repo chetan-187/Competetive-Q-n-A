@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1601889356 source:d:\applications\code blocks\projects\stack\stack_using_array.c
+	<stdio.h>
+
+1601889159 source:d:\applications\code blocks\projects\stack\stack_using_linklist.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1601889265 source:d:\applications\code blocks\projects\stack\stack_using_structure.c
+	<stdio.h>
+	<stdlib.h>
+
+1601886680 source:d:\applications\code blocks\projects\stack\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1602488921 source:d:\applications\code blocks\projects\stack\paranthesis_checking_using_stack.c
+	<stdio.h>
+	<stdlib.h>
+
+1602309354 source:d:\applications\code blocks\projects\stack\stack_using_structure_ds_tut.c
+
+1602310579 source:d:\applications\code blocks\projects\stack\p.c
+	<stdio.h>
+	<string.h>
+
+1602494051 source:d:\applications\code blocks\projects\stack\postfix.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
